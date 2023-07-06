@@ -1,0 +1,77 @@
+'''
+Faça um algoritmo que controle o acesso de pessoas a um estabelecimento comercial.
+Para isso você deverá utilizar as seguintes classes:
+
+Crie uma classe Profissional com os atributos:
+- nome
+- especialidade
+- sala
+Todos atributos devem ser privados e string.
+Crie uma classe Visitante com os atributos:
+- nome
+- documento
+Todos atributos devem ser privados e string.
+
+Crie a classe Visita com os atributos:
+- visitante
+- profissional
+- data_entrada
+O atributo visitante deverá ser um objeto da classe Visitante escolhido de l_visitantes.
+O atributo profissional deverá ser um objeto da classe Profissional escolhido de l_profissionais.
+Crie os métodos que forem necessários para acessar os atributos das classes.
+
+
+Desenvolva seu código a partir do menu abaixo:
+
+======================
+MENU
+======================
+1- Cadastrar Profissional
+2- Cadastrar Visitante
+3- Localizar Profissional
+4- Registrar Visita
+5- Relatório de Conferência
+6- Gerar arquivo de Registros do dia
+7- Ler arquivos profissionais / visitantes
+Escolha:
+
+
+Na opção 1 do menu cadastre o nome, especialidade e sala onde o profissional atende.
+                      Armazene esses dados na lista l_profissionais (como objetos).
+
+Na opção 2 do menu será cadastrado o visitante com nome, documento.
+                      Armazene esses dados na lista l_visitantes (como objetos).
+
+Na opção 3 do menu é possível localizar um profissional pelo nome ou pela profissão.
+                      Serve para o caso do visitante não saber a sala do profissional.
+                      (Apenas mostrar na tela o nome, profissão e a sala do profissional)
+
+Na opção 4 do menu será registrado a visita.
+                      Escolha o visitante (da lista de visitantes) e o profissional (da lista_profissionais),
+                           busque a data do computador e armazene a visita em um dicionário 'dict_visitas'.
+     { visitante :
+          { nome_profissional : "" ,
+            hora_entrada : "",
+            sala : ""
+          }
+     }
+
+Na opção 5 do menu apenas crie um relatório de conferência.
+                      Selecione o profissional e mostre todos os visitantes e a data da visita.
+
+Na opção 6 do menu, gere um arquivo JSON com os registros do dia.
+     { numero_documento_visitante :
+          { nome_profissional : "" ,
+            hora_entrada : "",
+            sala : ""
+          }
+     }
+
+Na opção 7 do menu, ler os arquivos em TXT 'profissionais.txt' e 'visitantes.txt' para iniciar o programa.
+
+
+Obs. Em todas as listas serão armazenados as instâncias de suas classes.
+               
+
+
+==============================================
