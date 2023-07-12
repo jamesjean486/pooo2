@@ -99,9 +99,9 @@ def localizar_profissional():
     if opcao == "1":
         nome = input("Nome do profissional: ")
         profissionais_encontrados = [profissional for profissional in l_profissionais if profissional.get_nome() == nome]
-    elif opcao == "2":
+    if opcao == "2":
         especialidade = input("Especialidade do profissional: ")
-        profissionais_encontrados = [profissional for profissional in l_profissionais if profissional.get_especialidade == especialidade]
+        profissionais_encontrados = [profissional for profissional in l_profissionais if profissional.get_especialidade() == especialidade]
     else:
         print("Opção inválida!")
         return
@@ -163,29 +163,20 @@ def relatorio_conferencia():
     print(f"Relatório de conferência para o profissional {profissional.get_nome()}:\n")
     for visitante_documento, visita in dict_visita.items():
         for visitante, profissional in dict_visita.items():
-            print(f"Profissional: {profissional}; Visitante: {visitante}, {visita}")
+            print(f" Visitante: {visitante} ; Profissional: {profissional} ")
 
 
 
 def gerar_arquivo_registros():
-    if len(dict_visita) == 0:
-        print("Nenhum registro de visita encontrado.")
-        return
-
+    print(dict_visita)
+    print("##############")
     registros = {}
-    for visitante_documento in dict_visita.items():
-        for nome_profissional, visitante_documento in dict_visita.items():
-            hora_entrada = visitante_documento["hora_entrada"]
-            sala = visitante_documento["sala"]
-            registros[visitante_documento] = {
-                "nome_profissional": nome_profissional,
-                "hora_entrada": hora_entrada,
-                "sala": sala
-            }
-
     with open("registros.json", "w") as file:
+        for visita in dict_visitas:
+            registros[visita.get_documento()] = dict_visita[visita]
         json.dump(registros, file, indent=4)
     print("Arquivo de registros gerado com sucesso!")
+
 
 
 
