@@ -1,4 +1,5 @@
 import datetime
+import json
 class Profissional:
     def __init__(self,nome, especialidade, sala):
         self.__nome = nome
@@ -160,34 +161,22 @@ def relatorio_conferencia():
 
     profissional = l_profissionais[profissional_index]
     print(f"Relatório de conferência para o profissional {profissional.get_nome()}:\n")
-    for visitante_documento, visitan in dict_visita.items():
-        print("AAAA")
-        for key, nome_profissional in dict_visita.items():
-            print("BBB")
-            print(key)
-            print(profissional.get_nome())
-            print(nome_profissional)
-            if nome_profissional == profissional.get_nome():
-                print("CCC")
-                # hora_entrada = dict_visita["hora_entrada"]
-                # sala = dict_visita["sala"]
-                # print(f"Visitante: {l_visitantes[int(visitante_documento)].get_nome()}")
-                # print(f"Data da visita: {datetime.date.today()}")
-                # print(f"Hora de entrada: {hora_entrada}")
-                # print(f"Sala: {sala}\n")
+    for visitante_documento, visita in dict_visita.items():
+        for visitante, profissional in dict_visita.items():
+            print(f"Profissional: {profissional}; Visitante: {visitante}, {visita}")
 
 
 
 def gerar_arquivo_registros():
-    if len(visita) == 0:
+    if len(dict_visita) == 0:
         print("Nenhum registro de visita encontrado.")
         return
 
     registros = {}
-    for visitante_documento, visitas in visita.items():
-        for nome_profissional, visita in visitas.items():
-            hora_entrada = visita["hora_entrada"]
-            sala = visita["sala"]
+    for visitante_documento in dict_visita.items():
+        for nome_profissional, visitante_documento in dict_visita.items():
+            hora_entrada = dict_visita["hora_entrada"]
+            sala = dict_visita["sala"]
             registros[visitante_documento] = {
                 "nome_profissional": nome_profissional,
                 "hora_entrada": hora_entrada,
