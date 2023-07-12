@@ -175,8 +175,8 @@ def gerar_arquivo_registros():
     registros = {}
     for visitante_documento in dict_visita.items():
         for nome_profissional, visitante_documento in dict_visita.items():
-            hora_entrada = dict_visita["hora_entrada"]
-            sala = dict_visita["sala"]
+            hora_entrada = visitante_documento["hora_entrada"]
+            sala = visitante_documento["sala"]
             registros[visitante_documento] = {
                 "nome_profissional": nome_profissional,
                 "hora_entrada": hora_entrada,
